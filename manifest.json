@@ -7,11 +7,10 @@
     "service_worker": "index.js"
   },
   "permissions": [
-    "https://www.nitrotype.com/race*",
-    "https://nitrotype.com/race*",
-    "storage",
-    "activeTab",
-    "scripting"
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.nitrotype.com/race"
   ],
   "action": {
     "default_title": "Nitrotype Captcha Auto Clicker",
@@ -29,18 +28,13 @@
     "48": "/images/clicker48.png",
     "128": "/images/clicker128.png"
   },
-  "web_accessible_resources": [
-    "popup.html",
-    "about.html"
-  ],
-  "content_security_policy": "script-src 'self'; object-src 'self'",
   "content_scripts": [
     {
         "run_at": "document_end",
         "all_frames": true,
         "matches": [
-          "https://www.nitrotype.com/race*",
-          "https://nitrotype.com/race*"
+          "https://www.nitrotype.com/race",
+          "https://www.google.com/recaptcha/*"
         ],
         "css": [
           "style.css"
