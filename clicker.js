@@ -6,7 +6,7 @@ chrome.storage.sync.get("sleepTime", ({ sleepTime }) => {
 });
 
 // This is for running in reCaptcha iframe
-var sid = setInterval(() => {
+var sid = setInterval(async () => {
   if (
     window.location.href
       .match(/https:\/\/www.google.com\/recaptcha\/api\d\/anchor/) &&
@@ -28,16 +28,9 @@ var sid = setInterval(() => {
     }
 
     if (execute) {
-      $("#recaptcha-anchor div.recaptcha-checkbox-checkmark").click();
       localStorage.setItem('accesstime', new Date().getTime());
-      setTimeout(async () => {
-        try {
-          await navigator.clipboard.writeText('C_CLICKED');
-        } catch (err) {
-          console.error('Failed to copy: ', err);
-        }
-      }, 0);
+      $("#recaptcha-anchor div.recaptcha-checkbox-checkmark").click();
     }
     clearInterval(sid);
   }
-}, 10000);
+}, 8000);

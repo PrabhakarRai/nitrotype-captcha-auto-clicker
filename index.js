@@ -1,4 +1,4 @@
-let sleepTime = 60; // in Minutes
+let sleepTime = 25; // in Minutes
 
 /*
 01 race  = 30s (approx minimum)
